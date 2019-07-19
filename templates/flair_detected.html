@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+{% block content %}
+    {% for post in posts %}
+        <br>
+        <article class="media content-section">
+          <div class="media-body">
+            <div class="article-metadata">
+              <a class="mr-2">
+				URL : <a href="{{post.URL}}">Link</a>
+				<br>
+              	Flair Detected: {{ post.flair }}</a>
+            </div>
+          </div>
+        </article>
+    {% endfor %}
+{% endblock content %}
