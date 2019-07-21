@@ -29,9 +29,13 @@ def home():
 def Flair_Detected():
     return render_template('flair_detected.html',posts=posts)
 
-@app.route("/data")
-def data():
+@app.route("/data1")
+def data1():
     return render_template('data_analysis.html')
+
+@app.route("/data2")
+def data2():
+    return render_template('da_2.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
