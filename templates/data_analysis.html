@@ -32,9 +32,9 @@
       </nav>
     </header>
     <main>
-      <div><br><br><ul><li><h2>Plot of Flairs and average, median of scores and comments of posts.</h2></li></ul></div>
+      <div><br><br><ul><li><h2><b>Plot of Flairs and average, median of scores and comments of posts.</b></h2></li></ul></div>
       <div>
-      <svg id="abc" width="1500" height="750"></svg>
+      <svg id="abc" width="1800" height="750"></svg>
         <script src="https://d3js.org/d3.v4.min.js"></script>
         <script>
         var svg = d3.select("#abc"),
@@ -51,7 +51,7 @@
             .rangeRound([height, 0]);
         var z = d3.scaleOrdinal()
             .range(["#ff8000", "#ff3200", "#ff0000", "#ff005d", "#a05d56", "#d0743c", "#ff8c00"]);
-        d3.csv("https://raw.githubusercontent.com/parasmehan123/abcd/master/others/analysis1.csv?token=AH5DJSC67OONDP35ER7L33S5HNXWE", function(d, i, columns) {
+        d3.csv("https://raw.githubusercontent.com/parasmehan123/abcd/master/data/analysis1.csv?token=AH5DJSG2YAQKY744HE4IOAS5HXJ7G", function(d, i, columns) {
           for (var i = 1, n = columns.length; i < n; ++i) d[columns[i]] = +d[columns[i]];
           return d;
         }, function(error, data) {
@@ -108,83 +108,210 @@
         });
         </script>
       </div>
-      <div><br><ul><li><h2>Plot of Flairs and hour at which the post is posted.</h2></li></ul></div>
-      <div>
-      <svg id="abc2" width="1500" height="750"></svg>
-        <script src="https://d3js.org/d3.v4.min.js"></script>
-        <script>
-        var svg = d3.select("#abc2"),
-            margin = {top:35, right: 20, bottom: 30, left: 40},
-            width = +svg.attr("width") - margin.left - margin.right,
-            height = +svg.attr("height") - margin.top - margin.bottom,
-            g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-        var x0 = d3.scaleBand()
-            .rangeRound([0, width])
-            .paddingInner(0.1);
-        var x1 = d3.scaleBand()
-            .padding(0.05);
-        var y = d3.scaleLinear()
-            .rangeRound([height, 0]);
-        var z = d3.scaleOrdinal()
-            .range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"]);
-        d3.csv("https://raw.githubusercontent.com/parasmehan123/abcd/master/others/analysis2.csv?token=AH5DJSGPRIQRE62CC3O3R2K5HNXY2", function(d, i, columns) {
-          for (var i = 1, n = columns.length; i < n; ++i) d[columns[i]] = +d[columns[i]];
+      <div><br>
+        <ul>
+          <li><h2><b>Plot of Percentage's of 4-hour ranges at which the post of different flair's are posted.</b><br></h2></li>
+            <!-- flair_dict={0:'Political',1:'Non-Political',2:'[R]eddiquette',3:'AskIndia',4:'Science/Technology',5:'Policy/Economy',6:'Finance/Business',7:'Sports',8:'Food',9:'Photography',10:'AMA'} -->
+            <ul><li><h3><b>Political</b></h3></li></ul>
+              <div><svg id='c0'></svg></div>
+            <ul><li><h3><b>Non-Political</b></h3></li></ul>
+              <div><svg id='c1'></svg></div>
+            <ul><li><h3><b>[R]eddiquette</b></h3></li></ul>
+              <div><svg id='c2'></svg></div>
+            <ul><li><h3><b>AskIndia</b></h3></li></ul>
+              <div><svg id='c3'></svg></div>
+            <ul><li><h3><b>Science/Technology</b></h3></li></ul>
+              <div><svg id='c4'></svg></div>
+            <ul><li><h3><b>Policy/Economy</b></h3></li></ul>
+              <div><svg id='c5'></svg></div>
+            <ul><li><h3><b>Finance/Business</b></h3></li></ul>
+              <div><svg id='c6'></svg></div>
+            <ul><li><h3><b>Sports</b></h3></li></ul>
+              <div><svg id='c7'></svg></div>
+            <ul><li><h3><b>Food</b></h3></li></ul>
+              <div><svg id='c8'></svg></div>
+            <ul><li><h3><b>Photography</b></h3></li></ul>
+              <div><svg id='c9'></svg></div>
+            <ul><li><h3><b>AMA</b></h3></li></ul>
+              <div><svg id='c10'></svg></div>
+
+                  
+    </ul></div>
+    <script>
+        function BarChart(){
+            var width,
+            height,
+            xScale = d3.scaleBand(),
+            yScale = d3.scaleLinear(),
+            x,
+            y,
+            margin = { top: 20, bottom: 20, left: 60, right: 60 },
+            xAxis = d3.axisBottom(xScale),
+            yAxis = d3.axisLeft(yScale);
+            
+        function my(selection){
+          
+          if(!x) throw new Error("Bar Chart x column must be defined.");
+          if(!y) throw new Error("Bar Chart y column must be defined.");
+          if(!width) throw new Error("Bar Chart width must be defined.");
+          if(!height) throw new Error("Bar Chart height must be defined.");
+          
+          selection.each(function(data) {
+            
+            var svg = d3.select(this)
+                .attr("width", width)
+                .attr("height", height);
+            
+            var g = svg.selectAll("g")
+              .data([1]);
+            g = g.enter().append("g")
+              .merge(g)
+                .attr("transform",
+                      "translate(" + margin.left + "," + margin.top +")");
+            
+            var innerWidth = width - margin.left - margin.right;
+            var innerHeight = height - margin.top - margin.bottom;
+        
+            xScale
+              .domain(data.map(function (d){ return d[x]; }))
+              .range([0, innerWidth]);
+            
+            yScale
+              .domain([0, d3.max(data, function (d){ return d[y] })])
+              .range([innerHeight, 0]);
+            
+            var xAxisG = g.selectAll(".x-axis").data([1]);
+            xAxisG.enter().append("g")
+                .attr("class", "x-axis")
+              .merge(xAxisG)
+                .attr("transform", "translate(0," + innerHeight +")")
+                .call(xAxis);
+            
+            var yAxisG = g.selectAll(".y-axis").data([1]);
+            yAxisG.enter().append("g")
+                .attr("class", "y-axis")
+              .merge(yAxisG)
+                .call(yAxis);
+            
+            var rects = g.selectAll("rect")
+              .data(data);
+            rects.exit().remove();
+            rects.enter().append("rect")
+              .merge(rects)
+                .attr("class","rectangle")
+                .attr("x", function (d){ return xScale(d[x]); })
+                .attr("y", function (d){ return yScale(d[y]); })
+                .attr("width", xScale.bandwidth())
+                .attr("height", function (d){
+                  return innerHeight - yScale(d[y]);
+                });
+          });
+        }
+        
+        my.x = function (_){
+          return arguments.length ? (x = _, my) : x;
+        };
+        
+        my.y = function (_){
+          return arguments.length ? (y = _, my) : y;
+        };
+        
+        my.width = function (_){
+          return arguments.length ? (width = _, my) : width;
+        };
+        
+        my.height = function (_){
+          return arguments.length ? (height = _, my) : height;
+        };
+        
+        my.padding = function (_){
+          return arguments.length ? (xScale.padding(_), my) : xScale.padding();
+        };
+
+        return my;
+      }
+      
+      
+
+        var barChart1= BarChart()
+          .width(1200)
+          .height(600)
+          .x("Hour")
+          .y("Percentage")
+          .padding(0.1);
+
+        function parseRow(d){
+          d.Percentage = +d.Percentage; // Parses String to Number.
           return d;
-        }, function(error, data) {
-          if (error) throw error;
-          var keys = data.columns.slice(1);
-          x0.domain(data.map(function(d) { return d.Flair; }));
-          x1.domain(keys).rangeRound([0, x0.bandwidth()]);
-          y.domain([0, d3.max(data, function(d) { return d3.max(keys, function(key) { return d[key]; }); })]).nice();
-          g.append("g")
-            .selectAll("g")
-            .data(data)
-            .enter().append("g")
-              .attr("transform", function(d) { return "translate(" + x0(d.Flair) + ",0)"; })
-            .selectAll("rect")
-            .data(function(d) { return keys.map(function(key) { return {key: key, value: d[key]}; }); })
-            .enter().append("rect")
-              .attr("x", function(d) { return x1(d.key); })
-              .attr("y", function(d) { return y(d.value); })
-              .attr("width", x1.bandwidth())
-              .attr("height", function(d) { return height - y(d.value); })
-              .attr("fill", function(d) { return z(d.key); });
-          g.append("g")
-              .attr("class", "axis")
-              .attr("transform", "translate(0," + height + ")")
-              .call(d3.axisBottom(x0));
-          g.append("g")
-              .attr("class", "axis")
-              .call(d3.axisLeft(y).ticks(null, "s"))
-            .append("text")
-              .attr("x", 2)
-              .attr("y", y(y.ticks().pop()) + 0.5)
-              .attr("dy", "0.32em")
-              .attr("fill", "#000")
-              .attr("font-weight", "bold")
-              .attr("text-anchor", "start")
-              .text("Percentages")
-          var legend = g.append("g")
-              .attr("font-family", "sans-serif")
-              .attr("font-size", 10)
-              .attr("text-anchor", "end")
-            .selectAll("g")
-            .data(keys.slice().reverse())
-            .enter().append("g")
-              .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
-          legend.append("rect")
-              .attr("x", width - 19)
-              .attr("width", 19)
-              .attr("height", 19)
-              .attr("fill", z);
-          legend.append("text")
-              .attr("x", width - 24)
-              .attr("y", 9.5)
-              .attr("dy", "0.32em")
-              .text(function(d) { return d; });
+        }
+
+        d3.csv("https://raw.githubusercontent.com/parasmehan123/abcd/master/data/time_0.csv?token=AH5DJSCGH7CO5Z54HGGNPUK5HXK34", parseRow, function (data){
+          
+          d3.select("#c0")
+            .datum(data)
+            .call(barChart1);
         });
-        </script>
-      </div>
+        d3.csv("https://raw.githubusercontent.com/parasmehan123/abcd/master/data/time_1.csv?token=AH5DJSE2S7LKL47EBTON4OS5HXOAK", parseRow, function (data){
+          
+          d3.select("#c1")
+            .datum(data)
+            .call(barChart1);
+        });
+        d3.csv("https://raw.githubusercontent.com/parasmehan123/abcd/master/data/time_2.csv?token=AH5DJSD6DME47SVKNBZTLEC5HXORY", parseRow, function (data){
+          
+          d3.select("#c2")
+            .datum(data)
+            .call(barChart1);
+        });
+        d3.csv("https://raw.githubusercontent.com/parasmehan123/abcd/master/data/time_3.csv?token=AH5DJSC355QOAVTCVMYMI3C5HXOUI", parseRow, function (data){
+          
+          d3.select("#c3")
+            .datum(data)
+            .call(barChart1);
+        });
+        d3.csv("https://raw.githubusercontent.com/parasmehan123/abcd/master/data/time_4.csv?token=AH5DJSDYXLOYLTX63IHCBKS5HXPG4", parseRow, function (data){
+          
+          d3.select("#c4")
+            .datum(data)
+            .call(barChart1);
+        });
+        d3.csv("https://raw.githubusercontent.com/parasmehan123/abcd/master/data/time_5.csv?token=AH5DJSHQDHYRUQFBQHSHWBC5HXPIC", parseRow, function (data){
+          
+          d3.select("#c5")
+            .datum(data)
+            .call(barChart1);
+        });
+        d3.csv("https://raw.githubusercontent.com/parasmehan123/abcd/master/data/time_6.csv?token=AH5DJSFSYT3XCHVWLOLNUHK5HXPJS", parseRow, function (data){
+          
+          d3.select("#c6")
+            .datum(data)
+            .call(barChart1);
+        });
+        d3.csv("https://raw.githubusercontent.com/parasmehan123/abcd/master/data/time_7.csv?token=AH5DJSBQSOYOOLTSWEDW2WC5HXPNA", parseRow, function (data){
+          
+          d3.select("#c7")
+            .datum(data)
+            .call(barChart1);
+        });
+        d3.csv("https://raw.githubusercontent.com/parasmehan123/abcd/master/data/time_8.csv?token=AH5DJSHAMZXUK65QLG7QHCK5HXPOK", parseRow, function (data){
+          
+          d3.select("#c8")
+            .datum(data)
+            .call(barChart1);
+        });
+        d3.csv("https://raw.githubusercontent.com/parasmehan123/abcd/master/data/time_9.csv?token=AH5DJSHDE6YIEDJ5YSHT5K25HXPPM", parseRow, function (data){
+          
+          d3.select("#c9")
+            .datum(data)
+            .call(barChart1);
+        });
+        d3.csv("https://raw.githubusercontent.com/parasmehan123/abcd/master/data/time_10.csv?token=AH5DJSASPG4MKLIIFCUNBZ25HXPQQ", parseRow, function (data){
+          
+          d3.select("#c10")
+            .datum(data)
+            .call(barChart1);
+        });
+      </script>
     </main>
   </body>
 </html>

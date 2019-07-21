@@ -78,3 +78,19 @@ a.article-title:hover {
 .account-heading {
   font-size: 2.5rem;
 }
+.rectangle {
+  fill: #ff0068;
+}
+.rectangle:hover {
+  fill: red;
+}
+.axis {
+  font: 10px sans-serif;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
