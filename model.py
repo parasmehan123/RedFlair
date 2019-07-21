@@ -1,6 +1,5 @@
 from nltk.stem import WordNetLemmatizer
 from nltk.tokenize import word_tokenize
-from sklearn.externals import joblib
 from nltk.corpus import stopwords 
 import praw
 import string
@@ -42,7 +41,7 @@ def pre_process(x,flag):
     
 flair_dict={0:'Political',1:'Non-Political',2:'[R]eddiquette',3:'AskIndia',4:'Science/Technology',5:'Policy/Economy',6:'Finance/Business',7:'Sports',8:'Food',9:'Photography',10:'AMA'}
 
-clf = joblib.load('model.joblib') 
+clf = pickle.load(open('model','rb')) 
 
 def get_flair(u):
     reddit=praw.Reddit(client_id='ST0obmq3HAomHQ',client_secret='ECeazJYbpZ5Kx83g6RrWPDyPO0A',user_agent='Precog Project',username='parasmehan123',password='pMarsMehan@123')

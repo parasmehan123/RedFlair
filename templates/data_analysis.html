@@ -51,7 +51,7 @@
             .rangeRound([height, 0]);
         var z = d3.scaleOrdinal()
             .range(["#ff8000", "#ff3200", "#ff0000", "#ff005d", "#a05d56", "#d0743c", "#ff8c00"]);
-        d3.csv("https://raw.githubusercontent.com/parasmehan123/Reddit-Flair-Detector/master/others/analysis1.csv?token=AH5DJSDNI3UDBNBBQF7PLM25HCKOC", function(d, i, columns) {
+        d3.csv("https://raw.githubusercontent.com/parasmehan123/abcd/master/others/analysis1.csv?token=AH5DJSC67OONDP35ER7L33S5HNXWE", function(d, i, columns) {
           for (var i = 1, n = columns.length; i < n; ++i) d[columns[i]] = +d[columns[i]];
           return d;
         }, function(error, data) {
@@ -127,7 +127,7 @@
             .rangeRound([height, 0]);
         var z = d3.scaleOrdinal()
             .range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"]);
-        d3.csv("https://raw.githubusercontent.com/parasmehan123/Reddit-Flair-Detector/master/others/analysis2.csv?token=AH5DJSE6P7Q37GUSIDI56AK5HCMCU", function(d, i, columns) {
+        d3.csv("https://raw.githubusercontent.com/parasmehan123/abcd/master/others/analysis2.csv?token=AH5DJSGPRIQRE62CC3O3R2K5HNXY2", function(d, i, columns) {
           for (var i = 1, n = columns.length; i < n; ++i) d[columns[i]] = +d[columns[i]];
           return d;
         }, function(error, data) {
