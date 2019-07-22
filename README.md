@@ -2,12 +2,16 @@ Red-Flair
 =========
 
 ## Table Of Content.
-<!--ts-->
-1. [Introduction]
-2. [How to Use the App]
-3. 
-<!--te-->
-## Introduction
+* [Introduction](https://github.com/parasmehan123/RedFlair#introduction)
+* [How to Use the App](https://github.com/parasmehan123/RedFlair#how-to-use-the-app)
+* [Directory Structure](https://github.com/parasmehan123/RedFlair#directory-structure)
+* [Steps To Run Red-Flair](https://github.com/parasmehan123/RedFlair#steps-to-run-red-flair)
+* [Dependicies](https://github.com/parasmehan123/RedFlair#dependicies)
+* [Project Approach](https://github.com/parasmehan123/RedFlair#project-approach)
+* [Analysis of Data](https://github.com/parasmehan123/RedFlair#analysis-of-data)
+* [Sources](https://github.com/parasmehan123/RedFlair#sources)
+
+## Introduction 
 Red-Flair is a flair detector for posts belonging to [r/india](https://www.reddit.com/r/india/) subreddit on Reddit. Its web app is deployed using Heroku which can be accessed [here](http://redflair.herokuapp.com). It scrapes post's using the URL and then uses an SVM model to predict the flair of that post.
 
 ## How to Use the App 
@@ -52,8 +56,8 @@ RedFlair
 * static : It contains the .css files for the web-app.
 * templates : It contains the .html files for the web-app.
 
-## Steps To Run Red-Flair on Local System.
-### For Hosting Red-Flair on Local Host
+## Steps To Run Red-Flair
+### Hosting Web App
 1. Clone The Repository.
 ```bash
 git clone https://github.com/parasmehan123/RedFlair.git
@@ -66,7 +70,7 @@ cd RedFlair
 ```bash
 python3 app.py
 ```
-### For Re-training the model or data-analysis or data-scarping or data-combining.
+### For Re-training the model or data-analysis or data-scarping or data-combining. <a link="re"/>
 1. Clone The Repository.
 ```bash
 git clone https://github.com/parasmehan123/RedFlair.git
