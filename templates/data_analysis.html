@@ -52,7 +52,8 @@
             .rangeRound([height, 0]);
         var z = d3.scaleOrdinal()
             .range(["#ff8000", "#ff3200", "#ff0000", "#ff005d", "#a05d56", "#d0743c", "#ff8c00"]);
-        d3.csv("https://raw.githubusercontent.com/parasmehan123/abcd/master/data/analysis1.csv?token=AH5DJSG2YAQKY744HE4IOAS5HXJ7G", function(d, i, columns) {
+        d3.csv("https://raw.githubusercontent.com/parasmehan123/RedFlair/master/data/csv_files/analysis1.csv?token=AH5DJSD2DVTC6WOYKQ6FWWK5H2WD6", function(d, i, columns) {
+          // console.log(data);
           for (var i = 1, n = columns.length; i < n; ++i) d[columns[i]] = +d[columns[i]];
           return d;
         }, function(error, data) {
@@ -139,6 +140,7 @@
                   
     </ul></div>
     <script>
+        var url=['https://raw.githubusercontent.com/parasmehan123/RedFlair/master/data/csv_files/time_0.csv?token=AH5DJSDMDBJHXPUIJSYLSPC5H2XIU','https://raw.githubusercontent.com/parasmehan123/RedFlair/master/data/csv_files/time_1.csv?token=AH5DJSH6TVXEZTTPB2SXBWK5H2XMA','https://raw.githubusercontent.com/parasmehan123/RedFlair/master/data/csv_files/time_2.csv?token=AH5DJSAPISKNB32MZ4B4IK25H2XNI','https://raw.githubusercontent.com/parasmehan123/RedFlair/master/data/csv_files/time_3.csv?token=AH5DJSADBRPV4PM6CRX5UMC5H2XOE','https://raw.githubusercontent.com/parasmehan123/RedFlair/master/data/csv_files/time_4.csv?token=AH5DJSC75ZATRQWVCRBXLXC5H2XO6','https://raw.githubusercontent.com/parasmehan123/RedFlair/master/data/csv_files/time_5.csv?token=AH5DJSFWQMP4MORXL3JAK4S5H2XQC','https://raw.githubusercontent.com/parasmehan123/RedFlair/master/data/csv_files/time_6.csv?token=AH5DJSAHRLI5R47GTHDDKIS5H2XQ4','https://raw.githubusercontent.com/parasmehan123/RedFlair/master/data/csv_files/time_7.csv?token=AH5DJSHQRTEN3LVPGCJNUAS5H2XRU','https://raw.githubusercontent.com/parasmehan123/RedFlair/master/data/csv_files/time_8.csv?token=AH5DJSEESVFZWR75CQVEC3K5H2XSM','https://raw.githubusercontent.com/parasmehan123/RedFlair/master/data/csv_files/time_9.csv?token=AH5DJSBBGYYI3JY3JO6AKIS5H2XTE','https://raw.githubusercontent.com/parasmehan123/RedFlair/master/data/csv_files/time_10.csv?token=AH5DJSCH4PHRZYKGHRVFWOS5H2XUE'];
         function BarChart(){
             var width,
             height,
@@ -246,67 +248,67 @@
           return d;
         }
 
-        d3.csv("https://raw.githubusercontent.com/parasmehan123/abcd/master/data/time_0.csv?token=AH5DJSCGH7CO5Z54HGGNPUK5HXK34", parseRow, function (data){
+        d3.csv(url[0], parseRow, function (data){
           
           d3.select("#c0")
             .datum(data)
             .call(barChart1);
         });
-        d3.csv("https://raw.githubusercontent.com/parasmehan123/abcd/master/data/time_1.csv?token=AH5DJSE2S7LKL47EBTON4OS5HXOAK", parseRow, function (data){
+        d3.csv(url[1], parseRow, function (data){
           
           d3.select("#c1")
             .datum(data)
             .call(barChart1);
         });
-        d3.csv("https://raw.githubusercontent.com/parasmehan123/abcd/master/data/time_2.csv?token=AH5DJSD6DME47SVKNBZTLEC5HXORY", parseRow, function (data){
+        d3.csv(url[2], parseRow, function (data){
           
           d3.select("#c2")
             .datum(data)
             .call(barChart1);
         });
-        d3.csv("https://raw.githubusercontent.com/parasmehan123/abcd/master/data/time_3.csv?token=AH5DJSC355QOAVTCVMYMI3C5HXOUI", parseRow, function (data){
+        d3.csv(url[3], parseRow, function (data){
           
           d3.select("#c3")
             .datum(data)
             .call(barChart1);
         });
-        d3.csv("https://raw.githubusercontent.com/parasmehan123/abcd/master/data/time_4.csv?token=AH5DJSDYXLOYLTX63IHCBKS5HXPG4", parseRow, function (data){
+        d3.csv(url[4], parseRow, function (data){
           
           d3.select("#c4")
             .datum(data)
             .call(barChart1);
         });
-        d3.csv("https://raw.githubusercontent.com/parasmehan123/abcd/master/data/time_5.csv?token=AH5DJSHQDHYRUQFBQHSHWBC5HXPIC", parseRow, function (data){
+        d3.csv(url[5], parseRow, function (data){
           
           d3.select("#c5")
             .datum(data)
             .call(barChart1);
         });
-        d3.csv("https://raw.githubusercontent.com/parasmehan123/abcd/master/data/time_6.csv?token=AH5DJSFSYT3XCHVWLOLNUHK5HXPJS", parseRow, function (data){
+        d3.csv(url[6], parseRow, function (data){
           
           d3.select("#c6")
             .datum(data)
             .call(barChart1);
         });
-        d3.csv("https://raw.githubusercontent.com/parasmehan123/abcd/master/data/time_7.csv?token=AH5DJSBQSOYOOLTSWEDW2WC5HXPNA", parseRow, function (data){
+        d3.csv(url[7], parseRow, function (data){
           
           d3.select("#c7")
             .datum(data)
             .call(barChart1);
         });
-        d3.csv("https://raw.githubusercontent.com/parasmehan123/abcd/master/data/time_8.csv?token=AH5DJSHAMZXUK65QLG7QHCK5HXPOK", parseRow, function (data){
+        d3.csv(url[8], parseRow, function (data){
           
           d3.select("#c8")
             .datum(data)
             .call(barChart1);
         });
-        d3.csv("https://raw.githubusercontent.com/parasmehan123/abcd/master/data/time_9.csv?token=AH5DJSHDE6YIEDJ5YSHT5K25HXPPM", parseRow, function (data){
+        d3.csv(url[9], parseRow, function (data){
           
           d3.select("#c9")
             .datum(data)
             .call(barChart1);
         });
-        d3.csv("https://raw.githubusercontent.com/parasmehan123/abcd/master/data/time_10.csv?token=AH5DJSASPG4MKLIIFCUNBZ25HXPQQ", parseRow, function (data){
+        d3.csv(url[10], parseRow, function (data){
           
           d3.select("#c10")
             .datum(data)

@@ -52,6 +52,7 @@
       </div>
       <script src="https://d3js.org/d3.v4.min.js"></script>
       <script>
+        var url=['https://raw.githubusercontent.com/parasmehan123/RedFlair/master/data/csv_files/w0.csv?token=AH5DJSDRRXLII7H5ZO2EIEK5H2X7Y','https://raw.githubusercontent.com/parasmehan123/RedFlair/master/data/csv_files/w4.csv?token=AH5DJSDGMHNFZAFWCNS7E6S5H2YAO','https://raw.githubusercontent.com/parasmehan123/RedFlair/master/data/csv_files/w5.csv?token=AH5DJSGCTBHBBF5Z3TGKGEK5H2YBC','https://raw.githubusercontent.com/parasmehan123/RedFlair/master/data/csv_files/w6.csv?token=AH5DJSGBA6MDJZCKEA2GGGS5H2YBW','https://raw.githubusercontent.com/parasmehan123/RedFlair/master/data/csv_files/w7.csv?token=AH5DJSA3BEL4BYDZ7VP3KAS5H2YCM'];
         function BarChart(){
             var width,
             height,
@@ -159,31 +160,31 @@
           return d;
         }
 
-        d3.csv("https://raw.githubusercontent.com/parasmehan123/abcd/master/data/w0.csv?token=AH5DJSHWLY7NI34AMUNI46S5HX3PS", parseRow, function (data){
+        d3.csv(url[0], parseRow, function (data){
           
           d3.select("#c0")
             .datum(data)
             .call(barChart1);
         });
-        d3.csv("https://raw.githubusercontent.com/parasmehan123/abcd/master/data/w4.csv?token=AH5DJSH6HEJ23PUPU6VC5ES5HX3QO", parseRow, function (data){
+        d3.csv(url[1], parseRow, function (data){
           
           d3.select("#c4")
             .datum(data)
             .call(barChart1);
         });
-        d3.csv("https://raw.githubusercontent.com/parasmehan123/abcd/master/data/w5.csv?token=AH5DJSCTXNO5JCSPH75XPAS5HX3RM", parseRow, function (data){
+        d3.csv(url[2], parseRow, function (data){
           
           d3.select("#c5")
             .datum(data)
             .call(barChart1);
         });
-        d3.csv("https://raw.githubusercontent.com/parasmehan123/abcd/master/data/w6.csv?token=AH5DJSC7OOF3RVAVFXMFNPK5HX3SO", parseRow, function (data){
+        d3.csv(url[3], parseRow, function (data){
           
           d3.select("#c6")
             .datum(data)
             .call(barChart1);
         });
-        d3.csv("https://raw.githubusercontent.com/parasmehan123/abcd/master/data/w7.csv?token=AH5DJSCEMQQSPUT42IO4TSC5HX3T2", parseRow, function (data){
+        d3.csv(url[4], parseRow, function (data){
           
           d3.select("#c7")
             .datum(data)
