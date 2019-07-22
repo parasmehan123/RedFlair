@@ -26,7 +26,7 @@ Red-Flair is a flair detector for posts belonging to [r/india](https://www.reddi
 3. Paste the Link in the Url Box and click submit. 
 ![](images/3.png)
 
-4. This will redirect you to [Flairs Detected](http://redflair.herokuapp.com/Flair_Detected) Page. Here it will display your submitted URL on the top, and the flair that has been predected. By clicking on the link which is highlighted in blue, it would re-direct to the URL which was submitted earlier.
+4. This will redirect you to [Flairs Detected](http://redflair.herokuapp.com/Flair_Detected) Page. Here it will display your submitted URL on the top, and the flair that has been predected. By clicking on the link which is highlighted in blue, it would re-direct to the URL which was submitted earlier. You might need to re-fresh the pages one or twice to load the content from Heroku Servers.
 ![](images/4.png)
 
 ## Tools Used
