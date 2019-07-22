@@ -44,7 +44,10 @@ flair_dict={0:'Political',1:'Non-Political',2:'[R]eddiquette',3:'AskIndia',4:'Sc
 clf = pickle.load(open('model','rb')) 
 
 def get_flair(u):
-    reddit=praw.Reddit(client_id='ST0obmq3HAomHQ',client_secret='ECeazJYbpZ5Kx83g6RrWPDyPO0A',user_agent='Precog Project',username='parasmehan123',password='')
+    #--------------------------------------------------------------------------------------------------------
+    # Fill the information Below
+    reddit=praw.Reddit(client_id='',client_secret='',user_agent='',username='',password='')
+    #--------------------------------------------------------------------------------------------------------
     s=reddit.submission(url=u)
     bo=[s.selftext]
     ti=[s.title]
