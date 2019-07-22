@@ -130,7 +130,7 @@ For data acquisition I've used 2 Methods.
 Using Python Praw library, I was able to scrape around 1800 posts for eleven flairs, using a simple API calls. The code for data scraping is saved in [data_scraping.ipynb](/others/data_scraping.ipynb) and the data is in [data.csv](/data/csv_files/data.csv).
 
 #### 2. Using Database on Google Big-Query.
-I've found a database containing Reddit posts on google big-query.
+I've found a database containing Reddit posts on [google big-query](https://bigquery.cloud.google.com/table/fh-bigquery:reddit_posts.2019_02?pli=1).
 Using the below SQL query I've been able to scrape data of 16000 posts belonging to 8 flair categories from January, February, and March 2019. I searched way back till 2017, but couldn't find posts belonging to Political, AMA, Finance/Business flair types, in the database.
 ```SQL
 
