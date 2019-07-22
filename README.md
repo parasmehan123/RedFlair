@@ -74,7 +74,7 @@ RedFlair
 * templates : It contains the .html files for the web-app.
 
 ## Steps To Run Red-Flair
-### Hosting Web App
+### Hosting Web App On Local Host
 1. Clone The Repository.
 ```bash
 git clone https://github.com/parasmehan123/RedFlair.git
@@ -83,7 +83,9 @@ git clone https://github.com/parasmehan123/RedFlair.git
 ```bash
 cd RedFlair
 ```
-3. Run the app.py file.
+3. Follow this [tutorial](http://www.storybench.org/how-to-scrape-reddit-with-python/) to get client id,etc. of Reddit.
+4. Open model.py and enter the information like client id,etc. in get_flair().
+5. Run the app.py file.
 ```bash
 python3 app.py
 ```
