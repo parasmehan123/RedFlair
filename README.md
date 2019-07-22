@@ -4,6 +4,7 @@ Red-Flair
 ## Table Of Content.
 * [Introduction](https://github.com/parasmehan123/RedFlair#introduction)
 * [How to Use the App](https://github.com/parasmehan123/RedFlair#how-to-use-the-app)
+* [Tools Used](https://github.com/parasmehan123/RedFlair#tools-used)
 * [Directory Structure](https://github.com/parasmehan123/RedFlair#directory-structure)
 * [Steps To Run Red-Flair](https://github.com/parasmehan123/RedFlair#steps-to-run-red-flair)
 * [Dependicies](https://github.com/parasmehan123/RedFlair#dependicies)
@@ -12,7 +13,7 @@ Red-Flair
 * [Sources](https://github.com/parasmehan123/RedFlair#sources)
 
 ## Introduction 
-Red-Flair is a flair detector for posts belonging to [r/india](https://www.reddit.com/r/india/) subreddit on Reddit. Its web app is deployed using Heroku which can be accessed [here](http://redflair.herokuapp.com). It scrapes post's using the URL and then uses an SVM model to predict the flair of that post.
+Red-Flair is a flair detector for posts belonging to [r/india](https://www.reddit.com/r/india/) subreddit on Reddit. Its web app is deployed using Heroku which can be accessed [here](http://redflair.herokuapp.com). It scrapes post's using the URL and then uses an SVC model to predict the flair of that post.
 
 ## How to Use the App 
 ### Steps to use the Web-app to predict flairs of posts.
@@ -27,6 +28,22 @@ Red-Flair is a flair detector for posts belonging to [r/india](https://www.reddi
 
 4. This will redirect you to [Flairs Detected](http://redflair.herokuapp.com/Flair_Detected) Page. Here it will display your submitted URL on the top, and the flair that has been predected. By clicking on the link which is highlighted in blue, it would re-direct to the URL which was submitted earlier.
 ![](images/4.png)
+
+## Tools Used
+* Python3
+* Sci-kit Learn
+* NLTK
+* FLASK
+* Flask-WTF
+* D3.JS
+* Xgboost
+* Praw
+* Jupyter
+* Mongodb Compass
+* HTML/CSS
+* Pandas 
+* Numpy
+* Heroku
 
 ## Directory Structure
 <pre>
